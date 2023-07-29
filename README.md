@@ -11,7 +11,7 @@ directory at `Replica` directory.
 
 or 
 
-`requirements.txt` included in the project can be used to install the dependencies
+`requirements.txt` included in the project can be used to install the dependencies.
 
       pip install -r requirements.txt
 
@@ -26,14 +26,28 @@ or
 
 3. To run the script, pass the following command-line arguments:
 
-   `-src`: Path to the `Source` directory.
+   <u><strong>Mandatory</strong></u>
+ 
+   1. `-src`: Path to the `Source` directory.
 
-   `-rep`: Path to the `Replica` directory.
+   <u><strong>Optional but recommended</strong></u>
 
-   `-sync`: Interval (in minutes) at which synchronization should be performed.
-
-   `-logf`: Path to where a log file should be saved.
+   2. `-rep`: Path to the `Replica` directory.
    
-Example:
+         Default location is the root of this project if not provided by the user.
 
-    python3 main.py -src path/to/source-dir -rep path/to/replica-dir -sync <sync_interval> -logf path/to/logfile
+   3. `-sync`: Interval (in minutes) at which synchronization should be performed.
+    
+         Default value is 30 minutes if not provided by the user.
+
+   4. `-logf`: Path to where a log file should be saved. 
+
+         Default location is the root of this project if not provided by the user.
+
+   Example 1 (with all the parameters):
+
+         python3 main.py -src <path/to/source-dir> -rep <path/to/replica-dir> -sync <sync_interval> -logf <path/to/logfile>
+
+   Example 2 (with only the mandatory parameter):
+
+         python3 main.py -src <path/to/source-dir>

@@ -1,5 +1,3 @@
-import logging
-
 from helper import *
 
 
@@ -44,15 +42,7 @@ def remove_from_replica(src, rep, src_files, replica_files):
     for fpath in replica_files:
         if fpath not in src_files:
             rep_file = rep / fpath
-            try:
-                if is_dir_empty(rep_file):
-                    os.rmdir(rep_file)
-                else:
-                    os.remove(rep_file)
-                logging.info(f"{rep_file} deleted from {rep}")
-                print(f"{rep_file} deleted from {rep}")
-            except FileNotFoundError as e:
-                print(e)
+            remove_file_dir(rep_file)
 
 
 def synchronize(src, rep):

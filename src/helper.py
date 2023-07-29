@@ -74,3 +74,20 @@ def calculate_hash(parent_path):
 
     return hash_files
 
+
+def remove_file_dir(fpath):
+    """
+    Deletes a file from a path. If the path is to an empty directory, then the directory is deleted.
+    :param fpath: Path to the file or empty directory that is to be deleted.
+    """
+    try:
+        if is_dir_empty(fpath):
+            os.rmdir(fpath)
+        else:
+            os.remove(fpath)
+
+        logging.info(f"{fpath} deleted.")
+        print(f"{fpath} deleted.")
+
+    except FileNotFoundError as e:
+        print(e)
