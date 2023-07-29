@@ -52,7 +52,6 @@ def synchronize(src, rep):
     :param rep: path to replica directory.
     :return:
     """
-
     # if the source directory doesn't exist for some reason
     if not src.is_dir():
         print("Source directory doesn't exist!")
@@ -72,6 +71,9 @@ def synchronize(src, rep):
 
     # Removing the files, that do not exist in source directory anymore, from replica directory
     remove_from_replica(src, rep, src_files, replica_files)
+
+    print("Synchronisation done!")
+
 
 
 

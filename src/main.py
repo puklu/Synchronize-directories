@@ -51,6 +51,10 @@ def main():
 
 
 if __name__ == '__main__':
+    print("\n\n\n")
+    print("  ***  Welcome to the Synchronize Directories tool  ***  ")
+    print(" # The program will run until interrupted by the user (eg using ctrl+c) # ")
+    print("\n")
     main()
 
 
