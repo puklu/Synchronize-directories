@@ -11,15 +11,16 @@ been tested and verified to work with Python 3.x (where x is the latest version 
 the time of development). Please ensure that you have Python 3.x installed on your
 system to run the tool.
 
-
-`schedule` library is required to be installed to use the tool.
+ The tool relies on the `schedule` library, 
+ which is responsible for scheduling periodic 
+ synchronization operations. 
+ To install the necessary dependencies, the user can execute the following command:
 
     pip install schedule
 
-or 
-
-`requirements.txt` included in the project can be used to install the dependencies.
-
+Alternatively, users can use the provided requirements.txt 
+file to install the required dependencies with:
+      
       pip install -r requirements.txt
 
 ## Usage
