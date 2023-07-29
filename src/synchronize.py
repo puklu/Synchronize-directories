@@ -1,3 +1,5 @@
+import logging
+
 from helper import *
 
 
@@ -13,13 +15,19 @@ def copy_from_source(src, rep, src_files, replica_files):
     :return:
     """
     for fpath in src_files:
-        src_file = src / fpath
-        rep_file = rep / fpath
-        if fpath not in replica_files:  # if the file doesn't exist in replica, copy it
-            copy_file(src_file, rep_file)
-        else:  # if the file does exist, verify the contents of the file is the same
-            if src_files[fpath] != replica_files[fpath]:
+        if not os.path.isdir(src/fpath):
+            src_file = src / fpath
+            rep_file = rep / fpath
+            if fpath not in replica_files:  # if the file doesn't exist in replica, copy it
                 copy_file(src_file, rep_file)
+            else:  # if the file does exist, verify the contents of the file is the same
+                if src_files[fpath] != replica_files[fpath]:
+                    copy_file(src_file, rep_file)
+
+        elif is_dir_empty(src/fpath):
+            src_file = src / fpath
+            rep_file = rep / fpath
+            copy_directory(src_file, rep_file)
 
 
 def remove_from_replica(src, rep, src_files, replica_files):
@@ -36,9 +44,15 @@ def remove_from_replica(src, rep, src_files, replica_files):
     for fpath in replica_files:
         if fpath not in src_files:
             rep_file = rep / fpath
-            os.remove(rep_file)
-            logging.info(f"{rep_file} deleted from {rep}")
-            print(f"{rep_file} deleted from {rep}")
+            try:
+                if is_dir_empty(rep_file):
+                    os.rmdir(rep_file)
+                else:
+                    os.remove(rep_file)
+                logging.info(f"{rep_file} deleted from {rep}")
+                print(f"{rep_file} deleted from {rep}")
+            except FileNotFoundError as e:
+                print(e)
 
 
 def synchronize(src, rep):

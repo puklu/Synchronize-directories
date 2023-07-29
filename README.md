@@ -9,6 +9,12 @@ directory at `Replica` directory.
 
     pip install schedule
 
+or 
+
+`requirements.txt` included in the project can be used to install the dependencies
+
+      pip install -r requirements.txt
+
 ## Usage
 1. Clone the repository:
     

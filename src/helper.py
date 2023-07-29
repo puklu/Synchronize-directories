@@ -12,9 +12,10 @@ def copy_directory(source, destination):
     :return:
     """
     try:
-        shutil.copytree(source, destination)
-        logging.info(f"{source} directory copied to {destination}")
-        print(f"{source} directory copied to {destination}")
+        if not os.path.exists(destination):
+            shutil.copytree(source, destination)
+            logging.info(f"{source} directory copied to {destination}")
+            print(f"{source} directory copied to {destination}")
     except shutil.Error as e:
         logging.info(f"Error: {e}")
         print(f"Error: {e}")
@@ -41,6 +42,15 @@ def copy_file(source, destination):
         print(f"Error: {e}")
 
 
+def is_dir_empty(directory_path):
+    """
+    Checks if a directory is empty.
+    :param directory_path: Path to the directory.
+    :return: True if empty, else False.
+    """
+    return not os.listdir(directory_path)
+
+
 def calculate_hash(parent_path):
     """
     Calculates the hash of every file present in the parent_path directory.
@@ -52,11 +62,15 @@ def calculate_hash(parent_path):
     hash_files = dict()
 
     for directory, sub_directory, files in walker:
-        for file in files:
-            tpath = os.path.join(directory, file)
-            filehash = hashlib.md5(open(tpath, 'rb').read()).hexdigest()
-            filepath = os.path.join(directory, file).split("/", 1)[1]
-            hash_files[filepath] = filehash
+        if is_dir_empty(directory):
+            filepath = directory.split(f"{parent_path}/")[1]
+            hash_files[f"{filepath}/"] = ""
+        else:
+            for file in files:
+                tpath = os.path.join(directory, file)
+                filehash = hashlib.md5(open(tpath, 'rb').read()).hexdigest()
+                filepath = tpath.split(f"{parent_path}/")[1]
+                hash_files[filepath] = filehash
 
     return hash_files
 
