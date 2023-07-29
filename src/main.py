@@ -32,14 +32,13 @@ def main():
         print("Invalid interval value!!")
         return
 
-    synchronize(src_path, replica_path)
+    # synchronize(src_path, replica_path)
 
-    # schedule.every(sync_interval).minutes.do(synchronize, src_path, replica_path)
+    schedule.every(sync_interval).minutes.do(synchronize, src_path, replica_path)
 
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
-
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 if __name__ == '__main__':
     main()
