@@ -46,6 +46,9 @@ def main():
         print("\nProgram interrupted by user. Exiting...")
         sys.exit(0)
 
+    except Exception as e:
+        print("An unknown error occurred:", e)
+
 
 if __name__ == '__main__':
     main()

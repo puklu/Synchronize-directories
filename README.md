@@ -1,10 +1,17 @@
 # Synchronization tool
-This tool performs one-way synchronization between two directories: `Source` and `Replica`.
 
-The tool maintains a full, identical copy of `Source`
-directory at `Replica` directory.
+The "Synchronization Tool" is a Python-based utility that facilitates one-way synchroniza-
+tion between two directories: the `Source` directory and the `Replica` directory. This tool
+ensures that the contents of the Replica directory remain fully identical to the Source direc-
+tory.
 
 ## Pre-requisities
+The Synchronization Tool is developed using Python programming language. It has
+been tested and verified to work with Python 3.x (where x is the latest version at
+the time of development). Please ensure that you have Python 3.x installed on your
+system to run the tool.
+
+
 `schedule` library is required to be installed to use the tool.
 
     pip install schedule
@@ -16,15 +23,17 @@ or
       pip install -r requirements.txt
 
 ## Usage
-1. Clone the repository:
+1. Clone this repository:
     
         git clone https://github.com/puklu/Synchronize-directories.git
 
-2. Change directory to the src folder:
+2. Navigate to the location where the project is cloned. Navigate into the "src" folder:
     
          cd src
 
-3. To run the script, pass the following command-line arguments:
+3. Execute the script with appropriate command-line arguments to initiate synchronization. 
+
+   The tool accepts the following parameters:
 
    <u><strong>Mandatory</strong></u>
  
