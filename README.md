@@ -18,7 +18,7 @@ or
 ## Usage
 1. Clone the repository:
     
-        git clone <repository_url>
+        git clone https://github.com/puklu/Synchronize-directories.git
 
 2. Change directory to the src folder:
     

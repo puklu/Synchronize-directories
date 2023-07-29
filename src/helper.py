@@ -63,8 +63,11 @@ def calculate_hash(parent_path):
 
     for directory, sub_directory, files in walker:
         if is_dir_empty(directory):
-            filepath = directory.split(f"{parent_path}/")[1]
-            hash_files[f"{filepath}/"] = ""
+            try:
+                filepath = directory.split(f"{parent_path}/")[1]
+                hash_files[f"{filepath}/"] = ""
+            except IndexError:
+                pass
         else:
             for file in files:
                 tpath = os.path.join(directory, file)
@@ -81,7 +84,7 @@ def remove_file_dir(fpath):
     :param fpath: Path to the file or empty directory that is to be deleted.
     """
     try:
-        if is_dir_empty(fpath):
+        if os.path.isdir(fpath) and is_dir_empty(fpath):
             os.rmdir(fpath)
         else:
             os.remove(fpath)

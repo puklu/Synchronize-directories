@@ -1,4 +1,5 @@
 import argparse
+import sys
 from pathlib import Path
 import logging
 import schedule
@@ -28,17 +29,23 @@ def main():
 
     try:
         sync_interval = float(args.sync)
-    except:
+
+        # synchronize(src_path, replica_path)
+        schedule.every(sync_interval).minutes.do(synchronize, src_path, replica_path)
+
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
+
+    except ValueError:
         print("Invalid interval value!!")
         return
 
-    # synchronize(src_path, replica_path)
+    except KeyboardInterrupt:
+        logging.info("Program interrupted by user. Exiting...")
+        print("\nProgram interrupted by user. Exiting...")
+        sys.exit(0)
 
-    schedule.every(sync_interval).minutes.do(synchronize, src_path, replica_path)
-
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
 
 if __name__ == '__main__':
     main()
