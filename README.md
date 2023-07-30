@@ -36,7 +36,7 @@ file to install the required dependencies with:
 
    Once you are inside the project folder, go into the "src" folder where `main.py` is present to run the Synchronization Tool.
     
-         cd src
+         cd Synchronize-directories/src
 
 3. Open the terminal or command prompt on your system in the current directory (where `main.py` is present).
 
