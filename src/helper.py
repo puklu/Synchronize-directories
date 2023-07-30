@@ -95,3 +95,20 @@ def remove_file_dir(fpath):
 
     except FileNotFoundError as e:
         print(e)
+
+
+def remove_extension(fpath):
+    """
+    Removes the extension at the end of a Path
+    :param fpath: type Path, path of which extension should be removed
+    :return: a Path with removed extension
+    """
+    try:
+        cleaned_path = fpath.with_suffix("").name
+        new_path = fpath.with_name(cleaned_path)
+        return new_path
+    except Exception as e:
+        print("Error: {e}")
+        return
+
+

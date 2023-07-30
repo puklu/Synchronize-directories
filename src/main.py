@@ -6,6 +6,7 @@ import schedule
 import time
 
 from synchronize import synchronize
+from helper import remove_extension
 
 
 def main():
@@ -24,6 +25,7 @@ def main():
     replica_path = Path(args.rep)
 
     logfile_path = Path(args.logf)
+    logfile_path = remove_extension(logfile_path) # logfile will be saved with extension ".log" always
 
     try:
         logging.basicConfig(filename=f"{logfile_path}.log", level=logging.INFO,
