@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5e93d008-ccf6-4e25-b5e3-ffa056a4386f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Report.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/synchronize.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/synchronize.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +55,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
-      <option name="PARAMETERS" value="-src $PROJECT_DIR$/source_dir/ -rep $PROJECT_DIR$/replica_dir/ -sync 0.1 -logf $PROJECT_DIR$/logfile" />
+      <option name="PARAMETERS" value="-src $PROJECT_DIR$/source_dir/ -rep $PROJECT_DIR$/../../../pulu/ -sync 0.1 -logf $PROJECT_DIR$/logfile" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -76,5 +74,16 @@
       <updated>1690538933120</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/synchronize.py</url>
+          <line>55</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

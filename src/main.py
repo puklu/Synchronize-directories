@@ -24,10 +24,11 @@ def main():
     replica_path = Path(args.rep)
 
     logfile_path = Path(args.logf)
-    logging.basicConfig(filename=f"{logfile_path}.log", level=logging.INFO,
-                        format='%(asctime)s - %(levelname)s - %(message)s')
 
     try:
+        logging.basicConfig(filename=f"{logfile_path}.log", level=logging.INFO,
+                            format='%(asctime)s - %(levelname)s - %(message)s')
+
         sync_interval = float(args.sync)
 
         # synchronize(src_path, replica_path)
@@ -45,6 +46,9 @@ def main():
         logging.info("Program interrupted by user. Exiting...")
         print("\nProgram interrupted by user. Exiting...")
         sys.exit(0)
+
+    except PermissionError as e:
+        print(f"Permission error occurred, please change the parameters accordingly: {e}")
 
     except Exception as e:
         print("An unknown error occurred:", e)

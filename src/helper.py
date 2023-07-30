@@ -16,6 +16,7 @@ def copy_directory(source, destination):
             shutil.copytree(source, destination)
             logging.info(f"{source} directory copied to {destination}")
             print(f"{source} directory copied to {destination}")
+
     except shutil.Error as e:
         logging.info(f"Error: {e}")
         print(f"Error: {e}")
